@@ -1,0 +1,58 @@
+import 'dart:async';
+
+import 'package:common_base/common_base.dart' as base;
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class UiCommandsConsumer<BlocT extends base.UiCommands<CommandT>,
+    CommandT extends base.UiCommand> extends StatefulWidget {
+  const UiCommandsConsumer({
+    required this.listener,
+    required this.child,
+    this.bloc,
+    super.key,
+  });
+
+  final UiCommandsListener<CommandT> listener;
+  final Widget child;
+  final BlocT? bloc;
+
+  @override
+  State<StatefulWidget> createState() =>
+      _UiCommandsConsumerState<BlocT, CommandT>();
+}
+
+class _UiCommandsConsumerState<BlocT extends base.UiCommands<CommandT>,
+        CommandT extends base.UiCommand>
+    extends State<UiCommandsConsumer<BlocT, CommandT>> {
+  late final StreamSubscription _subscription;
+
+  @override
+  @mustCallSuper
+  void initState() {
+    super.initState();
+    final bloc = widget.bloc ?? context.read<BlocT>();
+    _subscription = bloc.uiCommandsStream.listen((command) {
+      if (mounted) {
+        widget.listener.call(context, command);
+      }
+    });
+  }
+
+  @override
+  @mustCallSuper
+  void dispose() {
+    _subscription.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return widget.child;
+  }
+}
+
+typedef UiCommandsListener<CommandT extends base.UiCommand> = void Function(
+  BuildContext context,
+  CommandT command,
+);
