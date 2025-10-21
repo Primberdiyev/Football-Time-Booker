@@ -1,1 +1,1 @@
-export 'splash_page_wrapper.dart';
+export 'auth/auth.dart';

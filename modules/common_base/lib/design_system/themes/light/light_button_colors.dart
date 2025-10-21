@@ -8,4 +8,7 @@ class LightButtonColors extends ButtonColors {
 
   @override
   Color get bgSecondary => AppColors.yellow;
+
+  @override
+  Color get loaderColor => AppColors.white;
 }

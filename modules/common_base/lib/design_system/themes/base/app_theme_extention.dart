@@ -9,6 +9,7 @@ class AppThemeExtention extends ThemeExtension<AppThemeExtention> {
 
   final AppThemeColors colors;
   final AppThemeTextStyles textStyles;
+
   @override
   ThemeExtension<AppThemeExtention> copyWith({
     AppThemeColors? colors,

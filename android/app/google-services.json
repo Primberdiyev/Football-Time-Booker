@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "758880319991",
+    "project_id": "football-time-32f64",
+    "storage_bucket": "football-time-32f64.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758880319991:android:507b7a354a3275269916f2",
+        "android_client_info": {
+          "package_name": "com.example.footballl_time_booker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmqWgZ_G_FFIsTLmW_MwAPlrpmOTpeJEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

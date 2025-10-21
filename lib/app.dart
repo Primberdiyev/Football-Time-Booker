@@ -30,6 +30,8 @@ class _AppState extends State<App> {
       routerDelegate: AutoRouterDelegate(delegate.controller),
       routeInformationParser: _appRouter.defaultRouteParser(),
       routeInformationProvider: _appRouter.routeInfoProvider(),
+      localizationsDelegates: AppLocalizations.delegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       theme: ThemeData(
         extensions: [
           lightThemeExtension,

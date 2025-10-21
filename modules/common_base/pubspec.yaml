@@ -8,16 +8,25 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  firebase_auth: 6.1.1
+  firebase_core: 4.2.0 
+  cloud_firestore: 6.0.3
+  flutter_svg: 2.2.1
+  intl: 0.19.0
   get_it: 8.2.0
   bloc: 9.1.0
   flutter_bloc: 9.1.1
   equatable: 2.0.7
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   network:
     path: modules/network 
   navigation: 
     path: modules/navigation
+  auth: 
+    path: ../auth
 
   
 
@@ -44,6 +53,7 @@ flutter_gen:
     flutter_svg: true
 
 flutter:
+  generate: true
   uses-material-design: true
   assets:
     - assets/images/

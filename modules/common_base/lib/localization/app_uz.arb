@@ -1,0 +1,10 @@
+{
+    "fcBoston":"FC Bo'ston",
+    "welcome":"Xush Kelibsiz!",
+    "enterLogin":"Login kiriting",
+    "enterPassword":"Parol kiriting",
+    "login":"Kirish",
+    "noRegistered":"Bu Login Parol tizimdan ro'yhatdan o'tmagan",
+    "errorWhileAuth":"Ro'yhatdan o'tishda Xatolik!",
+    "fillField":"Iltimos, Barcha maydonlarni to'ldiring"
+}
