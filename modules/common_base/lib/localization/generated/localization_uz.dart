@@ -33,4 +33,10 @@ class L10nUz extends L10n {
 
   @override
   String get fillField => 'Iltimos, Barcha maydonlarni to\'ldiring';
+
+  @override
+  String get main => 'Asosiy';
+
+  @override
+  String get statistics => 'Hisobot';
 }

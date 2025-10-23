@@ -25,9 +25,16 @@ class AuthDiModule extends BaseDiModule {
       ),
     );
 
+    getIt.registerLazySingleton<CheckIsRegisteredUseCase>(
+      () => CheckIsRegisteredUseCase(
+        repository: getIt<AuthRepository>(),
+      ),
+    );
+
     getIt.registerFactory<AuthBloc>(
       () => AuthBloc(
         signInUseCase: getIt<SignInUseCase>(),
+        checkIsRegisteredUseCase: getIt<CheckIsRegisteredUseCase>(),
       ),
     );
   }

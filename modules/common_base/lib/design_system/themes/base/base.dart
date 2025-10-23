@@ -6,5 +6,6 @@ export 'app_theme_heading_text_styles.dart';
 export 'app_theme_text_styles.dart';
 export 'background_colors.dart';
 export 'button_colors.dart';
+export 'icon_colors.dart';
 export 'input_field_colors.dart';
 export 'text_colors.dart';

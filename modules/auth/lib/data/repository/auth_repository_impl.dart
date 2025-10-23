@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:auth/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -24,5 +23,14 @@ class AuthRepositoryImpl implements AuthRepository {
       );
     }
     return user;
+  }
+
+  @override
+  bool isRegistered() {
+    final userData = _localDataSource.getUser();
+    if (userData != null) {
+      return true;
+    }
+    return false;
   }
 }

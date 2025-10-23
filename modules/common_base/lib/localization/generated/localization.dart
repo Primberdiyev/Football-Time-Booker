@@ -141,6 +141,18 @@ abstract class L10n {
   /// In uz, this message translates to:
   /// **'Iltimos, Barcha maydonlarni to\'ldiring'**
   String get fillField;
+
+  /// No description provided for @main.
+  ///
+  /// In uz, this message translates to:
+  /// **'Asosiy'**
+  String get main;
+
+  /// No description provided for @statistics.
+  ///
+  /// In uz, this message translates to:
+  /// **'Hisobot'**
+  String get statistics;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

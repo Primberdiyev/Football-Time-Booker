@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$AuthState {
   Statuses get signInStatus;
   Failure? get error;
-  AuthStatuses? get authStatus;
+  AuthStatuses get authStatus;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -51,7 +51,7 @@ abstract mixin class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) _then) =
       _$AuthStateCopyWithImpl;
   @useResult
-  $Res call({Statuses signInStatus, Failure? error, AuthStatuses? authStatus});
+  $Res call({Statuses signInStatus, Failure? error, AuthStatuses authStatus});
 }
 
 /// @nodoc
@@ -68,7 +68,7 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   $Res call({
     Object? signInStatus = null,
     Object? error = freezed,
-    Object? authStatus = freezed,
+    Object? authStatus = null,
   }) {
     return _then(_self.copyWith(
       signInStatus: null == signInStatus
@@ -79,10 +79,10 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
               as Failure?,
-      authStatus: freezed == authStatus
+      authStatus: null == authStatus
           ? _self.authStatus
           : authStatus // ignore: cast_nullable_to_non_nullable
-              as AuthStatuses?,
+              as AuthStatuses,
     ));
   }
 }
@@ -181,7 +181,7 @@ extension AuthStatePatterns on AuthState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            Statuses signInStatus, Failure? error, AuthStatuses? authStatus)?
+            Statuses signInStatus, Failure? error, AuthStatuses authStatus)?
         $default, {
     required TResult orElse(),
   }) {
@@ -210,7 +210,7 @@ extension AuthStatePatterns on AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            Statuses signInStatus, Failure? error, AuthStatuses? authStatus)
+            Statuses signInStatus, Failure? error, AuthStatuses authStatus)
         $default,
   ) {
     final _that = this;
@@ -237,7 +237,7 @@ extension AuthStatePatterns on AuthState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-            Statuses signInStatus, Failure? error, AuthStatuses? authStatus)?
+            Statuses signInStatus, Failure? error, AuthStatuses authStatus)?
         $default,
   ) {
     final _that = this;
@@ -254,7 +254,9 @@ extension AuthStatePatterns on AuthState {
 
 class _AuthState extends AuthState {
   const _AuthState(
-      {this.signInStatus = Statuses.initial, this.error, this.authStatus})
+      {this.signInStatus = Statuses.initial,
+      this.error,
+      this.authStatus = AuthStatuses.initial})
       : super._();
 
   @override
@@ -263,7 +265,8 @@ class _AuthState extends AuthState {
   @override
   final Failure? error;
   @override
-  final AuthStatuses? authStatus;
+  @JsonKey()
+  final AuthStatuses authStatus;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -302,7 +305,7 @@ abstract mixin class _$AuthStateCopyWith<$Res>
       __$AuthStateCopyWithImpl;
   @override
   @useResult
-  $Res call({Statuses signInStatus, Failure? error, AuthStatuses? authStatus});
+  $Res call({Statuses signInStatus, Failure? error, AuthStatuses authStatus});
 }
 
 /// @nodoc
@@ -319,7 +322,7 @@ class __$AuthStateCopyWithImpl<$Res> implements _$AuthStateCopyWith<$Res> {
   $Res call({
     Object? signInStatus = null,
     Object? error = freezed,
-    Object? authStatus = freezed,
+    Object? authStatus = null,
   }) {
     return _then(_AuthState(
       signInStatus: null == signInStatus
@@ -330,10 +333,10 @@ class __$AuthStateCopyWithImpl<$Res> implements _$AuthStateCopyWith<$Res> {
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
               as Failure?,
-      authStatus: freezed == authStatus
+      authStatus: null == authStatus
           ? _self.authStatus
           : authStatus // ignore: cast_nullable_to_non_nullable
-              as AuthStatuses?,
+              as AuthStatuses,
     ));
   }
 }

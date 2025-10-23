@@ -2,7 +2,7 @@ import 'package:auth/auth.dart';
 import 'package:common_base/common_base.dart';
 import 'package:flutter/material.dart';
 
-class SplashPage extends StatefulWidget {
+class SplashPage extends StatelessWidget {
   const SplashPage({
     super.key,
     required this.router,
@@ -10,28 +10,19 @@ class SplashPage extends StatefulWidget {
   final AuthRouter router;
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
-}
-
-class _SplashPageState extends State<SplashPage> {
-  @override
-  void initState() {
-    super.initState();
-    navigate();
-  }
-
-  Future<void> navigate() async {
-    await Future.delayed(Duration(seconds: 2));
-    if (mounted) {
-      widget.router.onPushLogin(context);
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Assets.images.logo.image(),
+      body: BlocListener<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state.authStatus.isRegistered) {
+            router.onPushActionMain(context);
+          } else if (state.authStatus.isNotRegistered) {
+            router.onPushLogin(context);
+          }
+        },
+        child: Center(
+          child: Assets.images.logo.image(),
+        ),
       ),
     );
   }

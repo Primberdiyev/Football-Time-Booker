@@ -5,6 +5,7 @@ final lightThemeExtension = AppThemeExtention(
     backgroundColors: LightBackgroundColors(),
     buttonColors: LightButtonColors(),
     inputFieldColors: LightInputFieldColor(),
+    iconColors: LightIconColors(),
   ),
   textStyles: AppThemeTextStyles(
     heading: LightThemeHeadingTextStyles(),

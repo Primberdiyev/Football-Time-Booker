@@ -13,7 +13,7 @@ Future initializeApp() async {
   );
   final CoreDiModule coreDiModule = CoreDiModule();
   await BaseDiModule.initDi(coreDiModule);
-  coreDiModule.get<AuthLocalDataSource>().initObjectBox();
+  await coreDiModule.get<AuthLocalDataSource>().initObjectBox();
 
   runApp(
     App(),

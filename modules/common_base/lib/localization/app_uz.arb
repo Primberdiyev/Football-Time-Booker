@@ -6,5 +6,7 @@
     "login":"Kirish",
     "noRegistered":"Bu Login Parol tizimdan ro'yhatdan o'tmagan",
     "notRegisteredYet":"Bu foydalanuvchi ro'yhatdan o'tmagan!",
-    "fillField":"Iltimos, Barcha maydonlarni to'ldiring"
+    "fillField":"Iltimos, Barcha maydonlarni to'ldiring",
+    "main":"Asosiy",
+    "statistics":"Hisobot"
 }

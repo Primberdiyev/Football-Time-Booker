@@ -5,7 +5,7 @@ abstract class AuthState with _$AuthState {
   const factory AuthState({
     @Default(Statuses.initial) Statuses signInStatus,
     Failure? error,
-    AuthStatuses? authStatus,
+    @Default(AuthStatuses.initial) AuthStatuses authStatus,
   }) = _AuthState;
 
   const AuthState._();

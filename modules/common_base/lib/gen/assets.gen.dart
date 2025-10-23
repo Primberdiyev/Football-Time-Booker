@@ -17,6 +17,20 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/chart.svg
+  SvgGenImage get chart => const SvgGenImage('assets/icons/chart.svg');
+
+  /// File path: assets/icons/chart_active.svg
+  SvgGenImage get chartActive =>
+      const SvgGenImage('assets/icons/chart_active.svg');
+
+  /// File path: assets/icons/home.svg
+  SvgGenImage get home => const SvgGenImage('assets/icons/home.svg');
+
+  /// File path: assets/icons/home_active.svg
+  SvgGenImage get homeActive =>
+      const SvgGenImage('assets/icons/home_active.svg');
+
   /// File path: assets/icons/lock.svg
   SvgGenImage get lock => const SvgGenImage('assets/icons/lock.svg');
 
@@ -27,7 +41,8 @@ class $AssetsIconsGen {
   String get path => 'packages/common_base/assets/icons';
 
   /// List of all assets
-  List<SvgGenImage> get values => [lock, profile];
+  List<SvgGenImage> get values =>
+      [chart, chartActive, home, homeActive, lock, profile];
 }
 
 class $AssetsImagesGen {
