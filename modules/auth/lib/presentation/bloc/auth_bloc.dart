@@ -13,6 +13,7 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
       : _signInUseCase = signInUseCase,
         super(AuthState()) {
     on<SignInEvent>(_signin);
+    on<CheckIsRegisteredEvent>(_checkIsRegistered);
   }
   final SignInUseCase _signInUseCase;
 
@@ -52,4 +53,7 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
           }
         });
   }
+
+  void _checkIsRegistered(
+      CheckIsRegisteredEvent event, Emitter<AuthState> emit) {}
 }

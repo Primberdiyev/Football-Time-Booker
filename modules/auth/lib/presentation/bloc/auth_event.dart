@@ -11,3 +11,5 @@ class SignInEvent extends AuthEvent {
   final String login;
   final String password;
 }
+
+class CheckIsRegisteredEvent extends AuthEvent {}

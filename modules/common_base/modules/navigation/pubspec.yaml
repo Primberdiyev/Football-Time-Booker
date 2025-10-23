@@ -14,11 +14,17 @@ dependencies:
   auto_route: 10.1.2
   flutter:
     sdk: flutter
-  
-  auth: 
-    path: ../../../auth 
-  common_base: 
+
+  auth:
+    path: ../../../auth
+  common_base:
     path: ../../../common_base
+  action_main:
+    path: ../../../action_main
+  statistics:
+    path: ../../../statistics
+  home:
+    path: ../../../home
 
 dev_dependencies:
   build_runner: 2.5.4
@@ -33,7 +39,7 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-  
+
   # fonts:
   #   - family: Schyler
   #     fonts:
@@ -46,4 +52,3 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
-

@@ -1,8 +1,14 @@
-# melos_managed_dependency_overrides: auth,common_base,network
+# melos_managed_dependency_overrides: auth,common_base,network,action_main,home,statistics
 dependency_overrides:
+  action_main:
+    path: ../../../action_main
   auth:
     path: ../../../auth
   common_base:
     path: ../..
+  home:
+    path: ../../../home
   network:
     path: ../network
+  statistics:
+    path: ../../../statistics

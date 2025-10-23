@@ -3,7 +3,8 @@ import 'package:common_base/common_base.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  const LoginPage({super.key, required this.router});
+  final AuthRouter router;
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -71,6 +72,19 @@ class _LoginPageState extends State<LoginPage> {
             left: 25,
           ),
           child: BlocConsumer<AuthBloc, AuthState>(
+            listenWhen: (previous, current) =>
+                previous.signInStatus != current.signInStatus,
+            listener: (context, state) {
+              if (state.signInStatus.isError) {
+                context.showSnackBar(
+                  text: locale.notRegisteredYet,
+                  color: colors.backgroundColors.snackbarBgColor,
+                );
+              }
+              if (state.signInStatus.isSuccess) {
+                widget.router.onPushActionMain(context);
+              }
+            },
             builder: (context, state) {
               return CustomButton(
                 isLoading: state.signInStatus.isLoading,
@@ -92,16 +106,6 @@ class _LoginPageState extends State<LoginPage> {
                   color: colors.textColors.whiteTextColor,
                 ),
               );
-            },
-            listenWhen: (previous, current) =>
-                previous.signInStatus != current.signInStatus,
-            listener: (context, state) {
-              if (state.signInStatus.isError) {
-                context.showSnackBar(
-                  text: locale.errorWhileAuth,
-                  color: colors.backgroundColors.snackbarBgColor,
-                );
-              }
             },
           ),
         ),

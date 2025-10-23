@@ -20,7 +20,8 @@ dependencies:
     path: modules/common_base/modules/navigation
   common_base: 
     path: modules/common_base
-
+  auth: 
+    path: modules/auth
 
   cupertino_icons: ^1.0.8
 

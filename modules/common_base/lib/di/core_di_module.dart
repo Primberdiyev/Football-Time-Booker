@@ -1,3 +1,4 @@
+import 'package:auth/auth.dart';
 import 'package:common_base/common_base.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:navigation/navigation.dart';
@@ -11,6 +12,10 @@ class CoreDiModule extends BaseDiModule {
     );
     getIt.registerLazySingleton<FirebaseAuth>(
       () => FirebaseAuth.instance,
+    );
+
+    getIt.registerLazySingleton<AuthLocalDataSource>(
+      () => AuthLocalDataSourceImpl(),
     );
   }
 }

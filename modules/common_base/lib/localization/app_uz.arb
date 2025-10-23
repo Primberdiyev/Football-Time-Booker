@@ -5,6 +5,6 @@
     "enterPassword":"Parol kiriting",
     "login":"Kirish",
     "noRegistered":"Bu Login Parol tizimdan ro'yhatdan o'tmagan",
-    "errorWhileAuth":"Ro'yhatdan o'tishda Xatolik!",
+    "notRegisteredYet":"Bu foydalanuvchi ro'yhatdan o'tmagan!",
     "fillField":"Iltimos, Barcha maydonlarni to'ldiring"
 }

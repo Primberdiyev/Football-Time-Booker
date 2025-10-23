@@ -29,7 +29,7 @@ class L10nUz extends L10n {
   String get noRegistered => 'Bu Login Parol tizimdan ro\'yhatdan o\'tmagan';
 
   @override
-  String get errorWhileAuth => 'Ro\'yhatdan o\'tishda Xatolik!';
+  String get notRegisteredYet => 'Bu foydalanuvchi ro\'yhatdan o\'tmagan!';
 
   @override
   String get fillField => 'Iltimos, Barcha maydonlarni to\'ldiring';

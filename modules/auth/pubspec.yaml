@@ -36,6 +36,7 @@ dependency_overrides:
   source_gen: ^2.0.0
 
 
+
 flutter:
   uses-material-design: true
 

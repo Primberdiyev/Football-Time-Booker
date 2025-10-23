@@ -1,4 +1,4 @@
-# melos_managed_dependency_overrides: network,auth,navigation
+# melos_managed_dependency_overrides: network,auth,navigation,action_main,home,statistics
 dependency_overrides:
   network:
     path: modules/network
@@ -6,3 +6,9 @@ dependency_overrides:
     path: ../auth
   navigation:
     path: modules/navigation
+  action_main:
+    path: ../action_main
+  home:
+    path: ../home
+  statistics:
+    path: ../statistics

@@ -15,6 +15,7 @@ class AuthDiModule extends BaseDiModule {
     getIt.registerLazySingleton<AuthRepository>(
       () => AuthRepositoryImpl(
         remoteDataSource: getIt<AuthRemoteDataSource>(),
+        localDataSource: getIt<AuthLocalDataSource>(),
       ),
     );
 

@@ -130,11 +130,11 @@ abstract class L10n {
   /// **'Bu Login Parol tizimdan ro\'yhatdan o\'tmagan'**
   String get noRegistered;
 
-  /// No description provided for @errorWhileAuth.
+  /// No description provided for @notRegisteredYet.
   ///
   /// In uz, this message translates to:
-  /// **'Ro\'yhatdan o\'tishda Xatolik!'**
-  String get errorWhileAuth;
+  /// **'Bu foydalanuvchi ro\'yhatdan o\'tmagan!'**
+  String get notRegisteredYet;
 
   /// No description provided for @fillField.
   ///

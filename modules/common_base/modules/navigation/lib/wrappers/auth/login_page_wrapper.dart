@@ -2,6 +2,7 @@ import 'package:auth/auth.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:common_base/common_base.dart';
 import 'package:flutter/material.dart';
+import 'package:navigation/navigation.dart';
 
 @RoutePage()
 class LoginPageWrapper extends StatelessWidget {
@@ -18,7 +19,9 @@ class LoginPageWrapper extends StatelessWidget {
       child: BlocDisposer<AuthBloc>(
         create: (context) => module.get<AuthBloc>(),
         builder: (context, state) {
-          return LoginPage();
+          return LoginPage(
+            router: AuthRouterImpl(),
+          );
         },
       ),
     );
