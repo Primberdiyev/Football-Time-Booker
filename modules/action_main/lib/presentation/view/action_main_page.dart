@@ -35,46 +35,48 @@ class _ActionMainPageState extends State<ActionMainPage> {
         StatisticsPageRoute(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
-        return SizedBox(
-          height: 90,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: colors.backgroundColors.scaffoldColor,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                NavBarItem(
-                  label: locale.main,
-                  selected: value == 0,
-                  onTap: () {
-                    value = 0;
-                    widget.router.navigateToHome(context);
-                  },
-                  passiveIconPath: Assets.icons.home,
-                  activeIconPath: Assets.icons.homeActive,
-                  activeTextStyle: textStyles.body.bXSBody10
-                      .copyWith(color: colors.textColors.activeTextColor),
-                  passiveTextStyle: textStyles.body.mXSBody10.copyWith(
-                    color: colors.textColors.notActiveTextColor,
+        return SafeArea(
+          child: SizedBox(
+            height: 70,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: colors.backgroundColors.scaffoldColor,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  NavBarItem(
+                    label: locale.main,
+                    selected: value == 0,
+                    onTap: () {
+                      value = 0;
+                      widget.router.navigateToHome(context);
+                    },
+                    passiveIconPath: Assets.icons.home,
+                    activeIconPath: Assets.icons.homeActive,
+                    activeTextStyle: textStyles.body.bXSBody10
+                        .copyWith(color: colors.textColors.activeTextColor),
+                    passiveTextStyle: textStyles.body.mXSBody10.copyWith(
+                      color: colors.textColors.notActiveTextColor,
+                    ),
                   ),
-                ),
-                NavBarItem(
-                  label: locale.statistics,
-                  selected: value == 1,
-                  onTap: () {
-                    value = 1;
-                    widget.router.navigateToStatistics(context);
-                  },
-                  passiveIconPath: Assets.icons.chart,
-                  activeIconPath: Assets.icons.chartActive,
-                  activeTextStyle: textStyles.body.bXSBody10
-                      .copyWith(color: colors.textColors.activeTextColor),
-                  passiveTextStyle: textStyles.body.mXSBody10.copyWith(
-                    color: colors.textColors.notActiveTextColor,
+                  NavBarItem(
+                    label: locale.statistics,
+                    selected: value == 1,
+                    onTap: () {
+                      value = 1;
+                      widget.router.navigateToStatistics(context);
+                    },
+                    passiveIconPath: Assets.icons.chart,
+                    activeIconPath: Assets.icons.chartActive,
+                    activeTextStyle: textStyles.body.bXSBody10
+                        .copyWith(color: colors.textColors.activeTextColor),
+                    passiveTextStyle: textStyles.body.mXSBody10.copyWith(
+                      color: colors.textColors.notActiveTextColor,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );

@@ -1,7 +1,6 @@
 import 'package:auth/auth.dart';
 import 'package:common_base/common_base.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
 import 'package:network/network.dart';
 part 'auth_bloc.freezed.dart';
 

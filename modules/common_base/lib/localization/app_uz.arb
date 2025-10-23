@@ -8,5 +8,50 @@
     "notRegisteredYet":"Bu foydalanuvchi ro'yhatdan o'tmagan!",
     "fillField":"Iltimos, Barcha maydonlarni to'ldiring",
     "main":"Asosiy",
-    "statistics":"Hisobot"
+    "statistics":"Hisobot",
+
+    "monday":"Du",
+    "tuesday":"Se",
+    "wednesday":"Chor",
+    "thursday":"Pay",
+    "friday":"Juma",
+    "saturday":"Shan",
+    "sunday":"Yak",
+
+
+    "january": "YAN",
+    "february": "FEV",
+    "march": "MAR",
+    "april": "APR",
+    "may": "MAY",
+    "june": "IYUN",
+    "july": "IYUL",
+    "august": "AVG",
+    "september": "SEN",
+    "october": "OKT",
+    "november": "NOY",
+    "december": "DEK",
+
+   "openedStadium":"Yopiq Stadion",
+   "closedStadium":"Ochiq Stadion",
+   "book":"Band qilish",
+
+   "time17":"17:00 - 18:00",
+   "time18":"18:00 - 19:00",
+   "time19":"18:00 - 19:00",
+   "time20":"19:00 - 20:00",
+   "time21":"20:00 - 21:00",
+   "time22":"21:00 - 22:00",
+   "time23":"22:00 - 23:00",
+   "time24":"23:00 - 23:59",
+
+   "booker":"Band qiluvchi",
+   "phoneNumber":"Telefon raqami",
+   "isConstant":"Doimiyligi",
+   "selectedTime":"Tanlangan vaqt: ",
+   "isLocalLabel":"Bo'ston mahallasidan",
+   "isRegularLabel":"Doimiyligi",
+   "yes":"Ha",
+   "no":"Yo'q"
+
 }

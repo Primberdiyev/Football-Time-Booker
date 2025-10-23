@@ -39,4 +39,118 @@ class L10nUz extends L10n {
 
   @override
   String get statistics => 'Hisobot';
+
+  @override
+  String get monday => 'Du';
+
+  @override
+  String get tuesday => 'Se';
+
+  @override
+  String get wednesday => 'Chor';
+
+  @override
+  String get thursday => 'Pay';
+
+  @override
+  String get friday => 'Juma';
+
+  @override
+  String get saturday => 'Shan';
+
+  @override
+  String get sunday => 'Yak';
+
+  @override
+  String get january => 'YAN';
+
+  @override
+  String get february => 'FEV';
+
+  @override
+  String get march => 'MAR';
+
+  @override
+  String get april => 'APR';
+
+  @override
+  String get may => 'MAY';
+
+  @override
+  String get june => 'IYUN';
+
+  @override
+  String get july => 'IYUL';
+
+  @override
+  String get august => 'AVG';
+
+  @override
+  String get september => 'SEN';
+
+  @override
+  String get october => 'OKT';
+
+  @override
+  String get november => 'NOY';
+
+  @override
+  String get december => 'DEK';
+
+  @override
+  String get openedStadium => 'Yopiq Stadion';
+
+  @override
+  String get closedStadium => 'Ochiq Stadion';
+
+  @override
+  String get book => 'Band qilish';
+
+  @override
+  String get time17 => '17:00 - 18:00';
+
+  @override
+  String get time18 => '18:00 - 19:00';
+
+  @override
+  String get time19 => '18:00 - 19:00';
+
+  @override
+  String get time20 => '19:00 - 20:00';
+
+  @override
+  String get time21 => '20:00 - 21:00';
+
+  @override
+  String get time22 => '21:00 - 22:00';
+
+  @override
+  String get time23 => '22:00 - 23:00';
+
+  @override
+  String get time24 => '23:00 - 23:59';
+
+  @override
+  String get booker => 'Band qiluvchi';
+
+  @override
+  String get phoneNumber => 'Telefon raqami';
+
+  @override
+  String get isConstant => 'Doimiyligi';
+
+  @override
+  String get selectedTime => 'Tanlangan vaqt: ';
+
+  @override
+  String get isLocalLabel => 'Bo\'ston mahallasidan';
+
+  @override
+  String get isRegularLabel => 'Doimiyligi';
+
+  @override
+  String get yes => 'Ha';
+
+  @override
+  String get no => 'Yo\'q';
 }

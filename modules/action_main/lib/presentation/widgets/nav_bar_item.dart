@@ -32,7 +32,6 @@ class NavBarItem extends StatelessWidget {
       onTap: onTap,
       child: Padding(
         padding: EdgeInsets.only(
-          bottom: 34,
           top: 8,
           left: 16,
           right: 16,

@@ -153,6 +153,234 @@ abstract class L10n {
   /// In uz, this message translates to:
   /// **'Hisobot'**
   String get statistics;
+
+  /// No description provided for @monday.
+  ///
+  /// In uz, this message translates to:
+  /// **'Du'**
+  String get monday;
+
+  /// No description provided for @tuesday.
+  ///
+  /// In uz, this message translates to:
+  /// **'Se'**
+  String get tuesday;
+
+  /// No description provided for @wednesday.
+  ///
+  /// In uz, this message translates to:
+  /// **'Chor'**
+  String get wednesday;
+
+  /// No description provided for @thursday.
+  ///
+  /// In uz, this message translates to:
+  /// **'Pay'**
+  String get thursday;
+
+  /// No description provided for @friday.
+  ///
+  /// In uz, this message translates to:
+  /// **'Juma'**
+  String get friday;
+
+  /// No description provided for @saturday.
+  ///
+  /// In uz, this message translates to:
+  /// **'Shan'**
+  String get saturday;
+
+  /// No description provided for @sunday.
+  ///
+  /// In uz, this message translates to:
+  /// **'Yak'**
+  String get sunday;
+
+  /// No description provided for @january.
+  ///
+  /// In uz, this message translates to:
+  /// **'YAN'**
+  String get january;
+
+  /// No description provided for @february.
+  ///
+  /// In uz, this message translates to:
+  /// **'FEV'**
+  String get february;
+
+  /// No description provided for @march.
+  ///
+  /// In uz, this message translates to:
+  /// **'MAR'**
+  String get march;
+
+  /// No description provided for @april.
+  ///
+  /// In uz, this message translates to:
+  /// **'APR'**
+  String get april;
+
+  /// No description provided for @may.
+  ///
+  /// In uz, this message translates to:
+  /// **'MAY'**
+  String get may;
+
+  /// No description provided for @june.
+  ///
+  /// In uz, this message translates to:
+  /// **'IYUN'**
+  String get june;
+
+  /// No description provided for @july.
+  ///
+  /// In uz, this message translates to:
+  /// **'IYUL'**
+  String get july;
+
+  /// No description provided for @august.
+  ///
+  /// In uz, this message translates to:
+  /// **'AVG'**
+  String get august;
+
+  /// No description provided for @september.
+  ///
+  /// In uz, this message translates to:
+  /// **'SEN'**
+  String get september;
+
+  /// No description provided for @october.
+  ///
+  /// In uz, this message translates to:
+  /// **'OKT'**
+  String get october;
+
+  /// No description provided for @november.
+  ///
+  /// In uz, this message translates to:
+  /// **'NOY'**
+  String get november;
+
+  /// No description provided for @december.
+  ///
+  /// In uz, this message translates to:
+  /// **'DEK'**
+  String get december;
+
+  /// No description provided for @openedStadium.
+  ///
+  /// In uz, this message translates to:
+  /// **'Yopiq Stadion'**
+  String get openedStadium;
+
+  /// No description provided for @closedStadium.
+  ///
+  /// In uz, this message translates to:
+  /// **'Ochiq Stadion'**
+  String get closedStadium;
+
+  /// No description provided for @book.
+  ///
+  /// In uz, this message translates to:
+  /// **'Band qilish'**
+  String get book;
+
+  /// No description provided for @time17.
+  ///
+  /// In uz, this message translates to:
+  /// **'17:00 - 18:00'**
+  String get time17;
+
+  /// No description provided for @time18.
+  ///
+  /// In uz, this message translates to:
+  /// **'18:00 - 19:00'**
+  String get time18;
+
+  /// No description provided for @time19.
+  ///
+  /// In uz, this message translates to:
+  /// **'18:00 - 19:00'**
+  String get time19;
+
+  /// No description provided for @time20.
+  ///
+  /// In uz, this message translates to:
+  /// **'19:00 - 20:00'**
+  String get time20;
+
+  /// No description provided for @time21.
+  ///
+  /// In uz, this message translates to:
+  /// **'20:00 - 21:00'**
+  String get time21;
+
+  /// No description provided for @time22.
+  ///
+  /// In uz, this message translates to:
+  /// **'21:00 - 22:00'**
+  String get time22;
+
+  /// No description provided for @time23.
+  ///
+  /// In uz, this message translates to:
+  /// **'22:00 - 23:00'**
+  String get time23;
+
+  /// No description provided for @time24.
+  ///
+  /// In uz, this message translates to:
+  /// **'23:00 - 23:59'**
+  String get time24;
+
+  /// No description provided for @booker.
+  ///
+  /// In uz, this message translates to:
+  /// **'Band qiluvchi'**
+  String get booker;
+
+  /// No description provided for @phoneNumber.
+  ///
+  /// In uz, this message translates to:
+  /// **'Telefon raqami'**
+  String get phoneNumber;
+
+  /// No description provided for @isConstant.
+  ///
+  /// In uz, this message translates to:
+  /// **'Doimiyligi'**
+  String get isConstant;
+
+  /// No description provided for @selectedTime.
+  ///
+  /// In uz, this message translates to:
+  /// **'Tanlangan vaqt: '**
+  String get selectedTime;
+
+  /// No description provided for @isLocalLabel.
+  ///
+  /// In uz, this message translates to:
+  /// **'Bo\'ston mahallasidan'**
+  String get isLocalLabel;
+
+  /// No description provided for @isRegularLabel.
+  ///
+  /// In uz, this message translates to:
+  /// **'Doimiyligi'**
+  String get isRegularLabel;
+
+  /// No description provided for @yes.
+  ///
+  /// In uz, this message translates to:
+  /// **'Ha'**
+  String get yes;
+
+  /// No description provided for @no.
+  ///
+  /// In uz, this message translates to:
+  /// **'Yo\'q'**
+  String get no;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {
