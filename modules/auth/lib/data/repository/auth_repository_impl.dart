@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:auth/auth.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:common_base/common_base.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   const AuthRepositoryImpl({
@@ -12,17 +12,17 @@ class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource _remoteDataSource;
   final AuthLocalDataSource _localDataSource;
   @override
-  FutureOr<User?> signIn(SignInParams params) async {
+  Future<UserModel?> signIn(SignInParams params) async {
     final user = await _remoteDataSource.signIn(params);
-    if (user != null) {
-      _localDataSource.saveUser(
-        UserModel(
-          email: params.email,
-          password: params.password,
-        ),
-      );
-    }
-    return user;
+    _localDataSource.saveUser(
+      UserModel(
+        login: user?.email?.getLoginFromDummyEmail() ?? '',
+        password: params.password,
+        uid: user?.id ?? '',
+      ),
+    );
+
+    return user?.toEntity(password: params.password);
   }
 
   @override

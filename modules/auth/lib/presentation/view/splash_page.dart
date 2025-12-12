@@ -15,7 +15,7 @@ class SplashPage extends StatelessWidget {
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state.authStatus.isRegistered) {
-            router.onPushActionMain(context);
+            router.onPushLogin(context);
           } else if (state.authStatus.isNotRegistered) {
             router.onPushLogin(context);
           }

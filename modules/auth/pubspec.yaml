@@ -8,6 +8,7 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  dropdown_button2: 2.3.9
   objectbox_flutter_libs: 4.3.0
   objectbox: 4.3.0
   freezed_annotation: 3.1.0

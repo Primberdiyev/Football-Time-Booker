@@ -1,49 +1,32 @@
 import 'package:auth/auth.dart';
-import 'package:objectbox/objectbox.dart';
-import 'package:auth/objectbox.g.dart';
+import 'package:common_base/common_base.dart';
 
 abstract class AuthLocalDataSource {
-  Future<void> initObjectBox();
-
   void saveUser(UserModel userModel);
 
-  void clearBox();
-
   void deleteUser();
-  
 
   UserModel? getUser();
 }
 
 class AuthLocalDataSourceImpl implements AuthLocalDataSource {
-  late Store store;
+  AuthLocalDataSourceImpl({required LocalStorage localStorage})
+      : _localStorage = localStorage;
 
-  @override
-  Future<void> initObjectBox() async {
-    store = await ObjectBoxStore.getInstance();
-  }
-
-  @override
-  void clearBox() {
-    store.box<UserModel>().removeAll();
-  }
-
+  final LocalStorage _localStorage;
   @override
   void deleteUser() {
-    store.box<UserModel>().removeAll();
+    _localStorage.clearBox();
   }
 
   @override
   UserModel? getUser() {
-    final users = store.box<UserModel>().getAll();
-    if (users.isNotEmpty) {
-      return users.last;
-    }
-    return null;
+    final user = _localStorage.getUser();
+    return user;
   }
 
   @override
   void saveUser(UserModel userModel) {
-    store.box<UserModel>().put(userModel);
+    _localStorage.saveUser(userModel);
   }
 }

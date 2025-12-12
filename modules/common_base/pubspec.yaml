@@ -8,6 +8,7 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  talker: 5.0.2
   mask_text_input_formatter: 2.9.0
   firebase_auth: 6.1.1
   firebase_core: 4.2.0 
@@ -25,7 +26,9 @@ dependencies:
   network:
     path: modules/network 
   navigation: 
-    path: modules/navigation
+    path: modules/navigation 
+  home:  
+    path: ../home
   auth: 
     path: ../auth
 

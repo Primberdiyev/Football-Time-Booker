@@ -6,9 +6,19 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 class BookingDialog extends StatefulWidget {
   const BookingDialog({
     super.key,
-    required this.selectedTime,
+    required this.selectedHour,
+    required this.datetime,
+    required this.stadiumType,
+    required this.function,
+    required this.buttonState,
+    required this.popFunction,
   });
-  final String selectedTime;
+  final String selectedHour;
+  final String datetime;
+  final String stadiumType;
+  final Function(BookingModel model) function;
+  final Function popFunction;
+  final Statuses buttonState;
 
   @override
   State<BookingDialog> createState() => _BookingDialogState();
@@ -42,7 +52,7 @@ class _BookingDialogState extends State<BookingDialog> {
     final colors = theme.colors;
     final textStyles = theme.textStyles;
     final locale = context.appLocale;
-    final selectedTimeLabel = "${locale.selectedTime} ${widget.selectedTime}";
+    final selectedTimeLabel = "${locale.selectedTime} ${widget.selectedHour}";
     final bookerLabel = locale.booker;
     final phoneNumberLabel = locale.phoneNumber;
 
@@ -119,6 +129,26 @@ class _BookingDialogState extends State<BookingDialog> {
                 );
               },
             ),
+            CustomButton(
+              isLoading: widget.buttonState.isLoading,
+              text: locale.book,
+              function: () {
+                final bookModel = BookingModel(
+                  hour: widget.selectedHour,
+                  stadiumType: widget.stadiumType,
+                  datetime: widget.datetime,
+                  bookerName: bookerController.text,
+                  phoneNumber: phoneController.text,
+                  isLocal: isLocalNotifier.value,
+                  isConstant: isRegularNotifier.value,
+                );
+                widget.function(bookModel);
+              },
+              buttonColor: colors.buttonColors.bgPrimary,
+              textStyle: textStyles.heading.head6.copyWith(
+                color: colors.textColors.whiteTextColor,
+              ),
+            )
           ],
         ),
       ),

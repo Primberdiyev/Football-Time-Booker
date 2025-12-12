@@ -60,53 +60,72 @@ class _LoginPageState extends State<LoginPage> {
                 imagePath: Assets.icons.lock,
               ),
               Spacer(),
-            ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.only(
-            bottom: 60,
-            right: 25,
-            left: 25,
-          ),
-          child: BlocConsumer<AuthBloc, AuthState>(
-            listenWhen: (previous, current) =>
-                previous.signInStatus != current.signInStatus,
-            listener: (context, state) {
-              if (state.signInStatus.isError) {
-                context.showSnackBar(
-                  text: locale.notRegisteredYet,
-                  color: colors.backgroundColors.snackbarBgColor,
-                );
-              }
-              if (state.signInStatus.isSuccess) {
-                widget.router.onPushActionMain(context);
-              }
-            },
-            builder: (context, state) {
-              return CustomButton(
-                isLoading: state.signInStatus.isLoading,
-                text: locale.login,
-                function: () {
-                  final login = loginController.text;
-                  final password = passwordController.text;
-                  final isEmpty = login.isEmpty | password.isEmpty;
-                  if (isEmpty) {
-                    context.showSnackBar(text: locale.fillField);
-                  } else {
-                    context.read<AuthBloc>().add(
-                          SignInEvent(login: login, password: password),
-                        );
-                  }
-                },
-                buttonColor: colors.buttonColors.bgPrimary,
-                textStyle: textStyles.heading.head5.copyWith(
-                  color: colors.textColors.whiteTextColor,
+              Padding(
+                padding: EdgeInsets.only(
+                  bottom: 30,
                 ),
-              );
-            },
+                child: BlocConsumer<AuthBloc, AuthState>(
+                  listenWhen: (previous, current) =>
+                      previous.loginStatus != current.loginStatus,
+                  listener: (context, state) {
+                    if (state.loginStatus.isError) {
+                      context.showSnackBar(
+                        text: state.error?.message ?? locale.notRegisteredYet,
+                        color: colors.backgroundColors.snackbarBgColor,
+                      );
+                    }
+                    if (state.loginStatus.isSuccess) {
+                      widget.router.onPushActionMain(context);
+                    }
+                  },
+                  builder: (context, state) {
+                    return CustomButton(
+                      isLoading: state.loginStatus.isLoading,
+                      text: locale.login,
+                      function: () {
+                        final login = loginController.text;
+                        final password = passwordController.text;
+                        final isEmpty = login.isEmpty | password.isEmpty;
+                        if (isEmpty) {
+                          context.showSnackBar(text: locale.fillField);
+                        } else {
+                          context.read<AuthBloc>().add(
+                                SignInEvent(login: login, password: password),
+                              );
+                        }
+                      },
+                      buttonColor: colors.buttonColors.bgPrimary,
+                      textStyle: textStyles.heading.head5.copyWith(
+                        color: colors.textColors.whiteTextColor,
+                      ),
+                    );
+                  },
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    locale.noAccount,
+                    style: textStyles.body.bLBody16,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      widget.router.onPushRegister(context);
+                    },
+                    child: Text(
+                      locale.register,
+                      style: textStyles.body.bLBody16.copyWith(
+                        color: colors.textColors.activeTextColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 80,
+              ),
+            ],
           ),
         ),
       ),

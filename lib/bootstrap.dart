@@ -1,4 +1,3 @@
-import 'package:auth/auth.dart';
 import 'package:common_base/common_base.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/widgets.dart';
@@ -13,7 +12,7 @@ Future initializeApp() async {
   );
   final CoreDiModule coreDiModule = CoreDiModule();
   await BaseDiModule.initDi(coreDiModule);
-  await coreDiModule.get<AuthLocalDataSource>().initObjectBox();
+  await coreDiModule.get<LocalStorage>().initObjectBox();
 
   runApp(
     App(),

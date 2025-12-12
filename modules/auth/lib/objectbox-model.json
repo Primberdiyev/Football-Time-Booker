@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:3244617894241944348",
-      "lastPropertyId": "4:2173816129242456226",
+      "lastPropertyId": "6:996629110731225932",
       "name": "UserModel",
       "properties": [
         {
@@ -20,8 +20,13 @@
           "type": 9
         },
         {
-          "id": "4:2173816129242456226",
-          "name": "email",
+          "id": "5:3948333457899515921",
+          "name": "uid",
+          "type": 9
+        },
+        {
+          "id": "6:996629110731225932",
+          "name": "login",
           "type": 9
         }
       ],
@@ -37,7 +42,8 @@
   "retiredEntityUids": [],
   "retiredIndexUids": [],
   "retiredPropertyUids": [
-    6360473981502163534
+    6360473981502163534,
+    2173816129242456226
   ],
   "retiredRelationUids": [],
   "version": 1

@@ -10,7 +10,14 @@ class AuthRouterImpl implements AuthRouter {
       );
 
   @override
-  void onPushActionMain(BuildContext context) => context.router.replaceAll([
-        ActionMainPageRoute(),
-      ]);
+  void onPushActionMain(BuildContext context) => context.router.replaceAll(
+        [
+          ActionMainPageRoute(),
+        ],
+      );
+
+  @override
+  void onPushRegister(BuildContext context) => context.router.push(
+        RegisterPageRoute(),
+      );
 }

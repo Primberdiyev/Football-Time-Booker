@@ -1,6 +1,6 @@
 import 'package:auth/auth.dart';
 import 'package:common_base/common_base.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:network/network.dart';
 
 class AuthDiModule extends BaseDiModule {
   const AuthDiModule();
@@ -8,7 +8,7 @@ class AuthDiModule extends BaseDiModule {
   void initModule(GetIt getIt) {
     getIt.registerLazySingleton<AuthRemoteDataSource>(
       () => AuthRemoteDataSourceImpl(
-        firebaseAuth: getIt<FirebaseAuth>(),
+        firebaseService: getIt<FirebaseService>(),
       ),
     );
 

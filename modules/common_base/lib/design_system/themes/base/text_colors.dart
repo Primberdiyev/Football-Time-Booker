@@ -12,4 +12,6 @@ class TextColors {
   Color get notActiveTextColor => AppColors.greyScale500;
 
   Color get blackText => AppColors.black;
+
+  Color get blueText => AppColors.blue;
 }

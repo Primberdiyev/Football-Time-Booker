@@ -20,6 +20,10 @@ class AppRouter extends RootStackRouter {
           path: RouteNames.login,
         ),
         AutoRoute(
+          page: RegisterPageRoute.page,
+          path: RouteNames.register,
+        ),
+        AutoRoute(
           page: ActionMainPageRoute.page,
           path: RouteNames.actionMain,
           children: [

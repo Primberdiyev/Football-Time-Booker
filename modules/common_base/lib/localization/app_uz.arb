@@ -52,6 +52,11 @@
    "isLocalLabel":"Bo'ston mahallasidan",
    "isRegularLabel":"Doimiyligi",
    "yes":"Ha",
-   "no":"Yo'q"
-
+   "no":"Yo'q",
+   "bookingSuccess":"Band qilish muvofaqiyatli bajarildi",
+   "noAccount":"Hisobingiz yo'qmi?",
+   "register":"Ro'yhatdan o'tish",
+   "enterName":"Ismingizni kiriting",
+   "user":"Foydalanuvchi",
+   "fieldCreator":"Maydon Egasi"
 }

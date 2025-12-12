@@ -1,7 +1,7 @@
 import 'package:common_base/common_base.dart';
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatelessWidget {
+class CustomButton extends StatefulWidget {
   const CustomButton({
     super.key,
     required this.text,
@@ -17,6 +17,11 @@ class CustomButton extends StatelessWidget {
   final bool isLoading;
 
   @override
+  State<CustomButton> createState() => _CustomButtonState();
+}
+
+class _CustomButtonState extends State<CustomButton> {
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final theme = context.theme;
@@ -27,15 +32,17 @@ class CustomButton extends StatelessWidget {
           size.width - 60,
           56,
         ),
-        backgroundColor: buttonColor,
+        backgroundColor: widget.buttonColor,
       ),
-      onPressed: () {
-        function.call();
-      },
-      child: !isLoading
+      onPressed: widget.isLoading
+          ? null
+          : () {
+              widget.function.call();
+            },
+      child: !widget.isLoading
           ? Text(
-              text,
-              style: textStyle,
+              widget.text,
+              style: widget.textStyle,
             )
           : ShowLoader(
               color: colors.buttonColors.loaderColor,

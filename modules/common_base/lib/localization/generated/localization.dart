@@ -381,6 +381,42 @@ abstract class L10n {
   /// In uz, this message translates to:
   /// **'Yo\'q'**
   String get no;
+
+  /// No description provided for @bookingSuccess.
+  ///
+  /// In uz, this message translates to:
+  /// **'Band qilish muvofaqiyatli bajarildi'**
+  String get bookingSuccess;
+
+  /// No description provided for @noAccount.
+  ///
+  /// In uz, this message translates to:
+  /// **'Hisobingiz yo\'qmi?'**
+  String get noAccount;
+
+  /// No description provided for @register.
+  ///
+  /// In uz, this message translates to:
+  /// **'Ro\'yhatdan o\'tish'**
+  String get register;
+
+  /// No description provided for @enterName.
+  ///
+  /// In uz, this message translates to:
+  /// **'Ismingizni kiriting'**
+  String get enterName;
+
+  /// No description provided for @user.
+  ///
+  /// In uz, this message translates to:
+  /// **'Foydalanuvchi'**
+  String get user;
+
+  /// No description provided for @fieldCreator.
+  ///
+  /// In uz, this message translates to:
+  /// **'Maydon Egasi'**
+  String get fieldCreator;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

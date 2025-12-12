@@ -22,7 +22,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
     id: const obx_int.IdUid(1, 3244617894241944348),
     name: 'UserModel',
-    lastPropertyId: const obx_int.IdUid(4, 2173816129242456226),
+    lastPropertyId: const obx_int.IdUid(6, 996629110731225932),
     flags: 0,
     properties: <obx_int.ModelProperty>[
       obx_int.ModelProperty(
@@ -38,8 +38,14 @@ final _entities = <obx_int.ModelEntity>[
         flags: 0,
       ),
       obx_int.ModelProperty(
-        id: const obx_int.IdUid(4, 2173816129242456226),
-        name: 'email',
+        id: const obx_int.IdUid(5, 3948333457899515921),
+        name: 'uid',
+        type: 9,
+        flags: 0,
+      ),
+      obx_int.ModelProperty(
+        id: const obx_int.IdUid(6, 996629110731225932),
+        name: 'login',
         type: 9,
         flags: 0,
       ),
@@ -93,7 +99,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
     lastSequenceId: const obx_int.IdUid(0, 0),
     retiredEntityUids: const [],
     retiredIndexUids: const [],
-    retiredPropertyUids: const [6360473981502163534],
+    retiredPropertyUids: const [6360473981502163534, 2173816129242456226],
     retiredRelationUids: const [],
     modelVersion: 5,
     modelVersionParserMinimum: 5,
@@ -111,11 +117,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
       },
       objectToFB: (UserModel object, fb.Builder fbb) {
         final passwordOffset = fbb.writeString(object.password);
-        final emailOffset = fbb.writeString(object.email);
-        fbb.startTable(5);
+        final uidOffset = fbb.writeString(object.uid);
+        final loginOffset = fbb.writeString(object.login);
+        fbb.startTable(7);
         fbb.addInt64(0, object.id);
         fbb.addOffset(2, passwordOffset);
-        fbb.addOffset(3, emailOffset);
+        fbb.addOffset(4, uidOffset);
+        fbb.addOffset(5, loginOffset);
         fbb.finish(fbb.endTable());
         return object.id;
       },
@@ -128,15 +136,19 @@ obx_int.ModelDefinition getObjectBoxModel() {
           4,
           0,
         );
-        final emailParam = const fb.StringReader(
+        final uidParam = const fb.StringReader(
           asciiOptimization: true,
-        ).vTableGet(buffer, rootOffset, 10, '');
+        ).vTableGet(buffer, rootOffset, 12, '');
+        final loginParam = const fb.StringReader(
+          asciiOptimization: true,
+        ).vTableGet(buffer, rootOffset, 14, '');
         final passwordParam = const fb.StringReader(
           asciiOptimization: true,
         ).vTableGet(buffer, rootOffset, 8, '');
         final object = UserModel(
           id: idParam,
-          email: emailParam,
+          uid: uidParam,
+          login: loginParam,
           password: passwordParam,
         );
 
@@ -160,8 +172,13 @@ class UserModel_ {
     _entities[0].properties[1],
   );
 
-  /// See [UserModel.email].
-  static final email = obx.QueryStringProperty<UserModel>(
+  /// See [UserModel.uid].
+  static final uid = obx.QueryStringProperty<UserModel>(
     _entities[0].properties[2],
+  );
+
+  /// See [UserModel.login].
+  static final login = obx.QueryStringProperty<UserModel>(
+    _entities[0].properties[3],
   );
 }

@@ -153,4 +153,22 @@ class L10nUz extends L10n {
 
   @override
   String get no => 'Yo\'q';
+
+  @override
+  String get bookingSuccess => 'Band qilish muvofaqiyatli bajarildi';
+
+  @override
+  String get noAccount => 'Hisobingiz yo\'qmi?';
+
+  @override
+  String get register => 'Ro\'yhatdan o\'tish';
+
+  @override
+  String get enterName => 'Ismingizni kiriting';
+
+  @override
+  String get user => 'Foydalanuvchi';
+
+  @override
+  String get fieldCreator => 'Maydon Egasi';
 }

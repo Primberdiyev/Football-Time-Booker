@@ -23,13 +23,12 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
   void _signin(SignInEvent event, Emitter<AuthState> emit) async {
     emit(
       state.copyWith(
-        signInStatus: Statuses.loading,
+        loginStatus: Statuses.loading,
       ),
     );
-    final email = "${event.login}@gmail.com";
     final result = await _signInUseCase(
       SignInParams(
-        email: email,
+        login: event.login,
         password: event.password,
       ),
     );
@@ -37,20 +36,21 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
         onFailure: (e) => emit(
               state.copyWith(
                 error: e,
-                signInStatus: Statuses.error,
+                loginStatus: Statuses.error,
               ),
             ),
         onSuccess: (user) {
           if (user != null) {
             emit(
               state.copyWith(
-                signInStatus: Statuses.success,
+                loginStatus: Statuses.success,
+                userModel: user,
               ),
             );
           } else {
             emit(
               state.copyWith(
-                signInStatus: Statuses.error,
+                loginStatus: Statuses.error,
               ),
             );
           }

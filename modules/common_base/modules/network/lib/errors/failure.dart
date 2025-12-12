@@ -72,6 +72,18 @@ class InvalidRefreshTokenFailure {
   const InvalidRefreshTokenFailure();
 }
 
+class FirebaseFailure extends Failure {
+  const FirebaseFailure({
+    required super.message,
+  });
+}
+
+class AuthFailure extends Failure {
+  const AuthFailure({
+    required super.message,
+  });
+}
+
 class UnhandledFailure {
   const UnhandledFailure(this.error, this.stackTrace);
   final StackTrace stackTrace;

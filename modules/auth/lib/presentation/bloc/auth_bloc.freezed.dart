@@ -14,8 +14,10 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$AuthState {
-  Statuses get signInStatus;
+  Statuses get loginStatus;
+  Statuses get registerStatus;
   Failure? get error;
+  UserModel? get userModel;
   AuthStatuses get authStatus;
 
   /// Create a copy of AuthState
@@ -30,19 +32,24 @@ mixin _$AuthState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is AuthState &&
-            (identical(other.signInStatus, signInStatus) ||
-                other.signInStatus == signInStatus) &&
+            (identical(other.loginStatus, loginStatus) ||
+                other.loginStatus == loginStatus) &&
+            (identical(other.registerStatus, registerStatus) ||
+                other.registerStatus == registerStatus) &&
             (identical(other.error, error) || other.error == error) &&
+            (identical(other.userModel, userModel) ||
+                other.userModel == userModel) &&
             (identical(other.authStatus, authStatus) ||
                 other.authStatus == authStatus));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, signInStatus, error, authStatus);
+  int get hashCode => Object.hash(
+      runtimeType, loginStatus, registerStatus, error, userModel, authStatus);
 
   @override
   String toString() {
-    return 'AuthState(signInStatus: $signInStatus, error: $error, authStatus: $authStatus)';
+    return 'AuthState(loginStatus: $loginStatus, registerStatus: $registerStatus, error: $error, userModel: $userModel, authStatus: $authStatus)';
   }
 }
 
@@ -51,7 +58,12 @@ abstract mixin class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) _then) =
       _$AuthStateCopyWithImpl;
   @useResult
-  $Res call({Statuses signInStatus, Failure? error, AuthStatuses authStatus});
+  $Res call(
+      {Statuses loginStatus,
+      Statuses registerStatus,
+      Failure? error,
+      UserModel? userModel,
+      AuthStatuses authStatus});
 }
 
 /// @nodoc
@@ -66,19 +78,29 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? signInStatus = null,
+    Object? loginStatus = null,
+    Object? registerStatus = null,
     Object? error = freezed,
+    Object? userModel = freezed,
     Object? authStatus = null,
   }) {
     return _then(_self.copyWith(
-      signInStatus: null == signInStatus
-          ? _self.signInStatus
-          : signInStatus // ignore: cast_nullable_to_non_nullable
+      loginStatus: null == loginStatus
+          ? _self.loginStatus
+          : loginStatus // ignore: cast_nullable_to_non_nullable
+              as Statuses,
+      registerStatus: null == registerStatus
+          ? _self.registerStatus
+          : registerStatus // ignore: cast_nullable_to_non_nullable
               as Statuses,
       error: freezed == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
               as Failure?,
+      userModel: freezed == userModel
+          ? _self.userModel
+          : userModel // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
       authStatus: null == authStatus
           ? _self.authStatus
           : authStatus // ignore: cast_nullable_to_non_nullable
@@ -180,15 +202,16 @@ extension AuthStatePatterns on AuthState {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            Statuses signInStatus, Failure? error, AuthStatuses authStatus)?
+    TResult Function(Statuses loginStatus, Statuses registerStatus,
+            Failure? error, UserModel? userModel, AuthStatuses authStatus)?
         $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _AuthState() when $default != null:
-        return $default(_that.signInStatus, _that.error, _that.authStatus);
+        return $default(_that.loginStatus, _that.registerStatus, _that.error,
+            _that.userModel, _that.authStatus);
       case _:
         return orElse();
     }
@@ -209,14 +232,15 @@ extension AuthStatePatterns on AuthState {
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(
-            Statuses signInStatus, Failure? error, AuthStatuses authStatus)
+    TResult Function(Statuses loginStatus, Statuses registerStatus,
+            Failure? error, UserModel? userModel, AuthStatuses authStatus)
         $default,
   ) {
     final _that = this;
     switch (_that) {
       case _AuthState():
-        return $default(_that.signInStatus, _that.error, _that.authStatus);
+        return $default(_that.loginStatus, _that.registerStatus, _that.error,
+            _that.userModel, _that.authStatus);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -236,14 +260,15 @@ extension AuthStatePatterns on AuthState {
 
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            Statuses signInStatus, Failure? error, AuthStatuses authStatus)?
+    TResult? Function(Statuses loginStatus, Statuses registerStatus,
+            Failure? error, UserModel? userModel, AuthStatuses authStatus)?
         $default,
   ) {
     final _that = this;
     switch (_that) {
       case _AuthState() when $default != null:
-        return $default(_that.signInStatus, _that.error, _that.authStatus);
+        return $default(_that.loginStatus, _that.registerStatus, _that.error,
+            _that.userModel, _that.authStatus);
       case _:
         return null;
     }
@@ -254,16 +279,23 @@ extension AuthStatePatterns on AuthState {
 
 class _AuthState extends AuthState {
   const _AuthState(
-      {this.signInStatus = Statuses.initial,
+      {this.loginStatus = Statuses.initial,
+      this.registerStatus = Statuses.initial,
       this.error,
+      this.userModel,
       this.authStatus = AuthStatuses.initial})
       : super._();
 
   @override
   @JsonKey()
-  final Statuses signInStatus;
+  final Statuses loginStatus;
+  @override
+  @JsonKey()
+  final Statuses registerStatus;
   @override
   final Failure? error;
+  @override
+  final UserModel? userModel;
   @override
   @JsonKey()
   final AuthStatuses authStatus;
@@ -281,19 +313,24 @@ class _AuthState extends AuthState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AuthState &&
-            (identical(other.signInStatus, signInStatus) ||
-                other.signInStatus == signInStatus) &&
+            (identical(other.loginStatus, loginStatus) ||
+                other.loginStatus == loginStatus) &&
+            (identical(other.registerStatus, registerStatus) ||
+                other.registerStatus == registerStatus) &&
             (identical(other.error, error) || other.error == error) &&
+            (identical(other.userModel, userModel) ||
+                other.userModel == userModel) &&
             (identical(other.authStatus, authStatus) ||
                 other.authStatus == authStatus));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, signInStatus, error, authStatus);
+  int get hashCode => Object.hash(
+      runtimeType, loginStatus, registerStatus, error, userModel, authStatus);
 
   @override
   String toString() {
-    return 'AuthState(signInStatus: $signInStatus, error: $error, authStatus: $authStatus)';
+    return 'AuthState(loginStatus: $loginStatus, registerStatus: $registerStatus, error: $error, userModel: $userModel, authStatus: $authStatus)';
   }
 }
 
@@ -305,7 +342,12 @@ abstract mixin class _$AuthStateCopyWith<$Res>
       __$AuthStateCopyWithImpl;
   @override
   @useResult
-  $Res call({Statuses signInStatus, Failure? error, AuthStatuses authStatus});
+  $Res call(
+      {Statuses loginStatus,
+      Statuses registerStatus,
+      Failure? error,
+      UserModel? userModel,
+      AuthStatuses authStatus});
 }
 
 /// @nodoc
@@ -320,19 +362,29 @@ class __$AuthStateCopyWithImpl<$Res> implements _$AuthStateCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? signInStatus = null,
+    Object? loginStatus = null,
+    Object? registerStatus = null,
     Object? error = freezed,
+    Object? userModel = freezed,
     Object? authStatus = null,
   }) {
     return _then(_AuthState(
-      signInStatus: null == signInStatus
-          ? _self.signInStatus
-          : signInStatus // ignore: cast_nullable_to_non_nullable
+      loginStatus: null == loginStatus
+          ? _self.loginStatus
+          : loginStatus // ignore: cast_nullable_to_non_nullable
+              as Statuses,
+      registerStatus: null == registerStatus
+          ? _self.registerStatus
+          : registerStatus // ignore: cast_nullable_to_non_nullable
               as Statuses,
       error: freezed == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
               as Failure?,
+      userModel: freezed == userModel
+          ? _self.userModel
+          : userModel // ignore: cast_nullable_to_non_nullable
+              as UserModel?,
       authStatus: null == authStatus
           ? _self.authStatus
           : authStatus // ignore: cast_nullable_to_non_nullable

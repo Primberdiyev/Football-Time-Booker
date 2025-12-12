@@ -5,8 +5,12 @@ class WeekDaysWidget extends StatefulWidget {
   const WeekDaysWidget({
     super.key,
     required this.controller,
+    required this.changeDateFunction,
+    required this.selectedTimeNotifier,
   });
   final ScrollController controller;
+  final Function(DateTime value) changeDateFunction;
+  final ValueNotifier<DateTime> selectedTimeNotifier;
 
   @override
   State<WeekDaysWidget> createState() => _AttendanceCalendarState();
@@ -15,23 +19,15 @@ class WeekDaysWidget extends StatefulWidget {
 class _AttendanceCalendarState extends State<WeekDaysWidget> {
   final double _itemWidth = 80.0;
   final DateTime _now = DateTime.now();
-  late ValueNotifier<DateTime> selectedTimeNotifier;
 
   @override
   void initState() {
     super.initState();
-    selectedTimeNotifier = ValueNotifier(_now);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (widget.controller.hasClients) {
         widget.controller.jumpTo((_now.day - 1) * _itemWidth);
       }
     });
-  }
-
-  @override
-  void dispose() {
-    selectedTimeNotifier.dispose();
-    super.dispose();
   }
 
   @override
@@ -68,7 +64,7 @@ class _AttendanceCalendarState extends State<WeekDaysWidget> {
     final daysInMonth = DateTime(_now.year, _now.month + 1, 0).day;
 
     return ValueListenableBuilder<DateTime>(
-        valueListenable: selectedTimeNotifier,
+        valueListenable: widget.selectedTimeNotifier,
         builder: (
           context,
           selectedDate,
@@ -99,7 +95,7 @@ class _AttendanceCalendarState extends State<WeekDaysWidget> {
 
                 return GestureDetector(
                   onTap: () {
-                    selectedTimeNotifier.value = currentDate;
+                    widget.changeDateFunction(currentDate);
                   },
                   child: Container(
                     margin:

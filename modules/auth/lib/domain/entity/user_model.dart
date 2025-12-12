@@ -5,11 +5,12 @@ import 'package:auth/objectbox.g.dart';
 class UserModel {
   UserModel({
     this.id = 0,
-    required this.email,
+    required this.uid,
+    required this.login,
     required this.password,
   });
-
   int id;
-  final String email;
+  final String uid;
+  final String login;
   final String password;
 }
